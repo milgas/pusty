@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post">
+
+    <div th:each="invoicer : ${invoice}" class="checkbox">
+        <input type="checkbox" name="invoicerIds" th:value="${invoicer.invoicerId}" th:id="${invoicer.invoicerId}"/>
+        <label th:for="${invoicer.invoicerId}" th:text="${invoicer.name}"></label>
+        <br />
+    </div>
+
+    <input type="submit" value="Remove Invoice" />
+</form>
+
+</body>
+</html>
